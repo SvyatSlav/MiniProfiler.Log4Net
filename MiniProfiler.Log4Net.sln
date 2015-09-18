@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{1EC78AF4-8000-4463-B21A-B276CB075701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Console", "Samples\Sample.Console\Sample.Console.csproj", "{011304AC-651D-4653-8DC2-909E75C3A99C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{AD6B584C-3451-4664-A23C-E2B52ED243CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiling.Log4Net.Tests", "UnitTests\MiniProfiler.Log4Net.Tests\Profiling.Log4Net.Tests.csproj", "{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiling.Log4Net", "Profiling.Log4Net\Profiling.Log4Net.csproj", "{28C344E3-188C-45F1-9366-861B347888DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{28B5AFDB-A5F0-4270-AFCB-C08F0E6E757C}"
+	ProjectSection(SolutionItems) = preProject
+		MiniProfiler.Log4Net.nuspec = MiniProfiler.Log4Net.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{011304AC-651D-4653-8DC2-909E75C3A99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011304AC-651D-4653-8DC2-909E75C3A99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011304AC-651D-4653-8DC2-909E75C3A99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011304AC-651D-4653-8DC2-909E75C3A99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C344E3-188C-45F1-9366-861B347888DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C344E3-188C-45F1-9366-861B347888DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C344E3-188C-45F1-9366-861B347888DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C344E3-188C-45F1-9366-861B347888DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{011304AC-651D-4653-8DC2-909E75C3A99C} = {1EC78AF4-8000-4463-B21A-B276CB075701}
+		{3014A907-9DCD-4F4B-BBCA-13EDA8D720CF} = {AD6B584C-3451-4664-A23C-E2B52ED243CE}
+	EndGlobalSection
+EndGlobal
