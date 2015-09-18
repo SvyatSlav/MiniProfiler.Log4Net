@@ -1,22 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
-    <metadata>
-        <id>MiniProfiler.Log4Net</id>
-        <version>0.0.1-alpha</version>
-        <authors>SvyatSlav</authors>
-        <owners>SvyatSlav</owners>
-        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Log4Net Prodiver, allow save profiling result into log</description>
-        <releaseNotes>See: ==Under Construction==</releaseNotes>
-        <language>en-US</language>
-        <tags>profiler logging log4Net performance profiling timing</tags>
-        <dependencies>
-            <dependency id="log4net" version="2.0.3" />
-            <dependency id="MiniProfiler" version="3.2.0.157" />
-        </dependencies>
-    </metadata>
-   <files>
-    <file src="Profiling.Log4Net\bin\Release\MiniProfiler.Log4Net.*" target="lib\net40" />
-  </files>
+  <metadata>
+    <id>MiniProfiler.Log4Net</id>
+    <version>0.0.1-alpha</version>
+    <authors>SvyatSlav</authors>
+    <owners>SvyatSlav</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/SvyatSlav/MiniProfiler.Log4Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Log4Net Prodiver, allow save profiling result into log</description>
+    <releaseNotes>See: https://github.com/SvyatSlav/MiniProfiler.Log4Net  [Package Info]</releaseNotes>
+    <language>en-US</language>
+    <tags>profiler logging log4Net performance profiling timing</tags>
+    <dependencies>
+      <dependency id="log4net" version="2.0.3" />
+      <dependency id="MiniProfiler" version="3.2.0.157" />
+    </dependencies>
+  </metadata>
 </package>
