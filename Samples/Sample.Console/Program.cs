@@ -33,7 +33,7 @@ namespace Sample.Console
         /// <param name="logger">The logger.</param>
         private static void MiniProfilerProvider(ILog logger)
         {
-            MiniProfilerEx.SetUpLog4Net(logger);
+            MiniProfilerLog.SetUpLog4Net(logger);
 
             var mp = MiniProfiler.Start("Provider");
 

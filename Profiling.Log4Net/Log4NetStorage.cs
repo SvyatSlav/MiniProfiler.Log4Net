@@ -7,11 +7,19 @@ using StackExchange.Profiling.Storage;
 
 namespace Profiling.Log4Net
 {
-    public class Log4NetStorage : IStorage
+    /// <summary>
+    /// Storage use log4Net logger
+    /// </summary>
+    internal class Log4NetStorage : IStorage
     {
         private readonly ILog _log;
         private readonly Log4NetLevels _profilerProfilerLevel;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Log4NetStorage"/> class.
+        /// </summary>
+        /// <param name="log">The log.</param>
+        /// <param name="profilerProfilerLevel">The profiler profiler level.</param>
         public Log4NetStorage(ILog log, Log4NetLevels profilerProfilerLevel)
         {
             _log = log;
@@ -34,7 +42,7 @@ namespace Profiling.Log4Net
         /// <remarks>
         /// Should also ensure the profiler is stored as being un-viewed by its profiling <see cref="P:StackExchange.Profiling.MiniProfiler.User"/>.
         /// </remarks>
-        public void Save(StackExchange.Profiling.MiniProfiler profiler)
+        public void Save(MiniProfiler profiler)
         {
             if (_log == null)
             {
@@ -59,11 +67,8 @@ namespace Profiling.Log4Net
                     _log.InfoExt(GetProfilerText(profiler));
                     break;
                 case Log4NetLevels.Debug:
-                case Log4NetLevels.All:
                     _log.DebugExt(GetProfilerText(profiler));
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -91,7 +96,6 @@ namespace Profiling.Log4Net
         /// </summary>
         public void SetUnviewed(string user, Guid id)
         {
-           
             //TODO NotImplementedException();
         }
 
@@ -110,6 +114,7 @@ namespace Profiling.Log4Net
         public List<Guid> GetUnviewedIds(string user)
         {
             //TODO NotImplementedException();
-            return null;}
+            return null;
+        }
     }
 }

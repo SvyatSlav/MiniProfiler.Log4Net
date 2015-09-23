@@ -4,39 +4,52 @@ using StackExchange.Profiling;
 
 namespace Profiling.Log4Net
 {
+    /// <summary>
+    /// Extensions for ILog class
+    /// </summary>
     public static class Log4NetExtensions
     {
-        //TODO Return ProfilerLogger
-        public static void StartProfiler(this ILog logger)
+        /// <summary>
+        /// Starts the profiler by default settings
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        public static MiniProfiler StartProfiler(this ILog logger)
         {
-            StartProfiler(logger, null);
+            return StartProfiler(logger, null);
         }
 
 
-        public static void StartProfiler(this ILog logger, string sessionName)
+        /// <summary>
+        /// Starts the profiler.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="sessionName">Name of the session.</param>
+        /// <param name="profilerLevel">Level which profiler will write in log. Default == Debug</param>
+        public static MiniProfiler StartProfiler(this ILog logger, string sessionName, Log4NetLevels profilerLevel = Log4NetLevels.Debug)
         {
-            if (!(MiniProfiler.Settings.ProfilerProvider is SingletonProfilerProvider))
-            {
-                MiniProfiler.Settings.ProfilerProvider = new SingletonProfilerProvider();
-            }
+            MiniProfilerLog.SetUpLog4Net(logger, profilerLevel);
 
-            MiniProfiler.Start(sessionName);
+            return MiniProfiler.Start(sessionName);
         }
 
+        /// <summary>
+        /// Steps for profiler
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         public static IDisposable Step(this ILog logger, string name)
         {
             return MiniProfiler.StepStatic(name);
         }
 
+        /// <summary>
+        /// Stops the profiler.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
         public static void StopProfiler(this ILog logger)
         {
             MiniProfiler.Stop();
-
-            //TODO в Экстеншен
-            if (logger.IsDebugEnabled)
-            {
-                logger.Debug(MiniProfiler.Current.RenderPlainText());
-            }
         }
     }
 }

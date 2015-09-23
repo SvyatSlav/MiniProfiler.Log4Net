@@ -8,28 +8,25 @@ namespace Profiling.Log4Net
     /// For storage profiling data in log.
     /// Only allows one  instance of a <see cref="MiniProfiler"/> to be the <see cref="MiniProfiler.Current"/> one.
     /// </summary>
-    public class Log4NetProfilerProvider : BaseProfilerProvider
+    internal class Log4NetProfilerProvider : BaseProfilerProvider
     {
-        private ILog _log;
+        private readonly ILog _logger;
 
-        private Log4NetLevels _profilerLevel;
+        private readonly Log4NetLevels _profilerLogLevel;
         private MiniProfiler _profiler;
 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Log4NetProfilerProvider"/> class.
         /// </summary>
-        /// <param name="log">Log4Net Logger</param>
-        /// <param name="profilerProfilerLevel">LogLevel for profiling message</param>
-        public Log4NetProfilerProvider(ILog log , Log4NetLevels profilerProfilerLevel)
+        /// <param name="logger">Instance of log4net logger</param>
+        /// <param name="profilerLogLevel">Level which profiler will write in log. Default == Debug</param>
+        public Log4NetProfilerProvider(ILog logger, Log4NetLevels profilerLogLevel)
         {
-            _log = log ?? LogManager.GetLogger("Log4NetProviderProfiler");
-            _profilerLevel = profilerProfilerLevel;
+            _logger = logger;
+            _profilerLogLevel = profilerLogLevel;
 
-            if (!(MiniProfiler.Settings.Storage is Log4NetStorage))
-            {
-                MiniProfiler.Settings.Storage = new Log4NetStorage(log, profilerProfilerLevel);
-            }
+            MiniProfiler.Settings.Storage = new Log4NetStorage(logger, profilerLogLevel);
         }
 
         /// <summary>
@@ -70,10 +67,55 @@ namespace Profiling.Log4Net
         /// </summary>
         public override MiniProfiler Start(string sessionName = null)
         {
-            //TODO Тут хочется чтобы при выключенном уровне логинга даже тайминг не приходил, т.е пишем свой Профайлер
             _profiler = new MiniProfiler(sessionName ?? AppDomain.CurrentDomain.FriendlyName);
-            SetProfilerActive(_profiler);
+            if (IsLogEnabled(_logger, _profilerLogLevel))
+            {
+                SetProfilerActive(_profiler);
+            }
+            else
+            {
+                StopProfiler(_profiler);
+            }
+
+
             return _profiler;
+        }
+
+        private bool IsLogEnabled(ILog log, Log4NetLevels profilerLogLevel)
+        {
+            if (log == null)
+            {
+                return false;
+            }
+
+            switch (profilerLogLevel)
+            {
+                case Log4NetLevels.Off:
+                    return false;
+                case Log4NetLevels.Fatal:
+                    return log.IsFatalEnabled;
+                case Log4NetLevels.Error:
+                    return log.IsErrorEnabled;
+                case Log4NetLevels.Warn:
+                    return log.IsWarnEnabled;
+                case Log4NetLevels.Info:
+                    return log.IsInfoEnabled;
+                case Log4NetLevels.Debug:
+                    return log.IsDebugEnabled;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether [is same logger] [the specified logger]. Or ProfilerLogLevel equals
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="profilerLogLevel">The profiler log level.</param>
+        /// <returns></returns>
+        public bool IsSameLogger(ILog logger, Log4NetLevels profilerLogLevel)
+        {
+            return _logger == logger && _profilerLogLevel == profilerLogLevel;
         }
     }
 }

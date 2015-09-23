@@ -29,6 +29,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\MiniProfiler.Log4Net.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -52,7 +53,7 @@
     <Compile Include="Log4NetLevels.cs" />
     <Compile Include="Log4NetProfilerProvider.cs" />
     <Compile Include="Log4NetStorage.cs" />
-    <Compile Include="MiniProfilerEx.cs" />
+    <Compile Include="MiniProfilerLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

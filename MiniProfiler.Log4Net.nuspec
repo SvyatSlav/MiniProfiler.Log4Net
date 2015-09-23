@@ -2,13 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>MiniProfiler.Log4Net</id>
-    <version>0.0.1-alpha</version>
+    <version>1.0.0</version>
     <authors>SvyatSlav</authors>
     <owners>SvyatSlav</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/SvyatSlav/MiniProfiler.Log4Net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Log4Net Prodiver, allow save profiling result into log</description>
+    <description>MiniProfiler extensions allows save Profiler results into log by log4Net
+
+All what you need is:
+     var logger = LogManager.GetLogger("Logger"); //Init Log4Net Logger
+     MiniProfilerLog.SetUpLog4Net(logger); //Set up profiler with logger
+and use Profiler as usual (see MiniProfiler site</description>
     <releaseNotes>See: https://github.com/SvyatSlav/MiniProfiler.Log4Net  [Package Info]</releaseNotes>
     <language>en-US</language>
     <tags>profiler logging log4Net performance profiling timing</tags>
@@ -17,4 +22,7 @@
       <dependency id="MiniProfiler" version="3.2.0.157" />
     </dependencies>
   </metadata>
+   <files>
+    <file src="Profiling.Log4Net\bin\Release\MiniProfiler.Log4Net.*" target="lib\net40" />
+  </files>
 </package>
