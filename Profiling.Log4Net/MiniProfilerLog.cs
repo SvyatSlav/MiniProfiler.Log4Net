@@ -4,16 +4,16 @@ using StackExchange.Profiling;
 namespace Profiling.Log4Net
 {
     /// <summary>
-    /// Extensions MiniProfiler for log into Log4net
+    /// MiniProfiler Extension for log by Log4net
     /// </summary>
     public static class MiniProfilerLog
     {
         /// <summary>
         /// Setup profiler with log4Net-logger and log level
         /// </summary>
-        /// <param name="logger">Instance of log4net logger</param>
-        /// <param name="profilerLogLevel">Level which identified as Profiler message writable. Default == Debug</param>
-        public static void SetUpLog4Net(ILog logger, Log4NetLevels profilerLogLevel = Log4NetLevels.Debug)
+        /// <param name="logger">Instance of log4net <see cref="ILog"/>. Default with name 'Log4NetProfiler'</param>
+        /// <param name="profilerLogLevel">Level which identified as Profiler message writable. Default == <see cref="Log4NetLevels.Debug"/></param>
+        public static void SetUpLog4Net(ILog logger = null, Log4NetLevels profilerLogLevel = Log4NetLevels.Debug)
         {
             var currentProvider = MiniProfiler.Settings.ProfilerProvider as Log4NetProfilerProvider;
 
@@ -22,14 +22,6 @@ namespace Profiling.Log4Net
                 var provider = new Log4NetProfilerProvider(logger ?? LogManager.GetLogger("Log4NetProfiler"), profilerLogLevel);
                 MiniProfiler.Settings.ProfilerProvider = provider;
             }
-        }
-
-        /// <summary>
-        ///  Setup profiler with log4Net-logger by default. 
-        /// </summary>
-        public static void SetUpLog4Net()
-        {
-            SetUpLog4Net(null);
         }
     }
 }

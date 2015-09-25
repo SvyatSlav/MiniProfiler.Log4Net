@@ -8,7 +8,7 @@ using StackExchange.Profiling.Storage;
 namespace Profiling.Log4Net
 {
     /// <summary>
-    /// Storage use log4Net logger
+    /// Storage using log4Net logger
     /// </summary>
     internal class Log4NetStorage : IStorage
     {
@@ -31,7 +31,7 @@ namespace Profiling.Log4Net
         /// </summary>
         public IEnumerable<Guid> List(int maxResults, DateTime? start = null, DateTime? finish = null, ListResultsOrder orderBy = ListResultsOrder.Descending)
         {
-            //TODO NotImplementedException();
+            //TODO NotImplemented;
             return null;
         }
 
@@ -87,7 +87,7 @@ namespace Profiling.Log4Net
         /// </remarks>
         public MiniProfiler Load(Guid id)
         {
-            //TODO NotImplementedException();
+            //TODO NotImplemented;
             return null;
         }
 
@@ -96,7 +96,7 @@ namespace Profiling.Log4Net
         /// </summary>
         public void SetUnviewed(string user, Guid id)
         {
-            //TODO NotImplementedException();
+            //TODO NotImplemented;
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Profiling.Log4Net
         /// </summary>
         public void SetViewed(string user, Guid id)
         {
-            //TODO NotImplementedException();
+            //TODO NotImplemented;
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Profiling.Log4Net
         /// <param name="user">User identified by the current <c>MiniProfiler.Settings.UserProvider</c></param>
         public List<Guid> GetUnviewedIds(string user)
         {
-            //TODO NotImplementedException();
+            //TODO NotImplemented;
             return null;
         }
     }

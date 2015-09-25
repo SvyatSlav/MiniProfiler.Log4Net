@@ -18,14 +18,24 @@ namespace Profiling.Log4Net
             return StartProfiler(logger, null);
         }
 
-
         /// <summary>
-        /// Starts the profiler.
+        /// tarts the profiler with session name. ProfilerLogLevel == Debug
         /// </summary>
         /// <param name="logger">The logger.</param>
         /// <param name="sessionName">Name of the session.</param>
-        /// <param name="profilerLevel">Level which profiler will write in log. Default == Debug</param>
-        public static MiniProfiler StartProfiler(this ILog logger, string sessionName, Log4NetLevels profilerLevel = Log4NetLevels.Debug)
+        /// <returns></returns>
+        public static MiniProfiler StartProfiler(this ILog logger, string sessionName)
+        {
+            return StartProfiler(logger, sessionName, Log4NetLevels.Debug);
+        }
+
+        /// <summary>
+        /// Starts the profiler with session name and  ProfilerLogLevel
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="sessionName">Name of the session.</param>
+        /// <param name="profilerLevel">Level which profiler will write in log</param>
+        public static MiniProfiler StartProfiler(this ILog logger, string sessionName, Log4NetLevels profilerLevel)
         {
             MiniProfilerLog.SetUpLog4Net(logger, profilerLevel);
 

@@ -1,7 +1,7 @@
 ﻿namespace Profiling.Log4Net
 {
     /// <summary>
-    /// Log4Net logging levels
+    /// Level with profiler write message into log
     /// </summary>
     public enum Log4NetLevels : byte
     {

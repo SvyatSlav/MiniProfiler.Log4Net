@@ -1,4 +1,6 @@
 ﻿using System.Data.Common;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using log4net;
 using log4net.Config;
@@ -13,6 +15,8 @@ namespace Sample.Console
     {
         private static void Main()
         {
+            File.Delete("Log.log");
+
             //Configure log4Net
             XmlConfigurator.Configure();
 
@@ -25,6 +29,8 @@ namespace Sample.Console
 
             //Additional usages, log4net extension
             Log4NetExtensions(logger);
+
+            Process.Start("Log.log");
         }
 
         /// <summary>
