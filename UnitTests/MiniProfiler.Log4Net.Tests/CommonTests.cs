@@ -10,6 +10,8 @@ using StackExchange.Profiling;
 
 namespace Profiling.Log4Net.Tests
 {
+    //TODO Регрессионный тест на многопоточность, есть подозрение что не работает из-за профайлера. Типа pForEach(()=> mp.Step(""))
+
     /// <summary>
     /// Common Test
     /// </summary>
