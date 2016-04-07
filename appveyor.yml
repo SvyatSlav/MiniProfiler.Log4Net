@@ -1,0 +1,7 @@
+version: 1.0.{build}
+before_build:
+- cmd: nuget restore MiniProfiler.Log4Net.sln
+build:
+  project: MiniProfiler.Log4Net.sln
+  parallel: true
+  verbosity: minimal
