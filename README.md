@@ -1,5 +1,5 @@
 # MiniProfiler.Log4Net
-MiniProfiler Extensions allows save Profiler results into log by log4Net
+MiniProfiler Extensions allows save MiniProfiler results into file (or another source) by log4Net
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2kkwren9loyqw9is?svg=true)](https://ci.appveyor.com/project/SvyatSlav/miniprofiler-log4net)
 
