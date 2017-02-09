@@ -13,17 +13,17 @@ namespace Profiling.Log4Net
     internal class Log4NetStorage : IStorage
     {
         private readonly ILog _log;
-        private readonly Log4NetLevels _profilerProfilerLevel;
+        private readonly Log4NetLevels _profilerLogLevel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Log4NetStorage"/> class.
         /// </summary>
         /// <param name="log">The log.</param>
-        /// <param name="profilerProfilerLevel">The profiler profiler level.</param>
-        public Log4NetStorage(ILog log, Log4NetLevels profilerProfilerLevel)
+        /// <param name="profilerLogLevel">The profiler profiler level.</param>
+        public Log4NetStorage(ILog log, Log4NetLevels profilerLogLevel)
         {
             _log = log;
-            _profilerProfilerLevel = profilerProfilerLevel;
+            _profilerLogLevel = profilerLogLevel;
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Profiling.Log4Net
                 return;
             }
 
-            switch (_profilerProfilerLevel)
+            switch (_profilerLogLevel)
             {
                 case Log4NetLevels.Off:
                     //Off
